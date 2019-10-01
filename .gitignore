@@ -1,0 +1,6 @@
+*.log
+.vagrant
+*.retry
+
+/log/*
+/tmp/*

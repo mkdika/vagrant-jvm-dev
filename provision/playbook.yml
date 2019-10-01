@@ -1,0 +1,36 @@
+- name: Vagrant development standard
+  hosts: all
+  user: vagrant
+  become: yes
+  gather_facts: yes
+  
+  tasks:
+    - name: Install essential apps and tools
+      apt:
+        name: '{{ item }}'
+        state: present
+        update-cache: yes
+      with_items:
+        - htop
+        - curl
+        - git
+        - vim
+        - lsof
+      become: yes
+
+    - name: Auto change dir to project root
+      lineinfile:
+        dest: "/home/vagrant/.bashrc"
+        line: "cd /vagrant/"
+        insertafter: EOF
+      become: no
+
+    - name: Let them know
+      debug:
+        msg:
+          - '===================================================='
+          - '|                                                  |'
+          - '|            VAGRANT PROVISION FINISHED            |'
+          - '|                                                  |'
+          - '===================================================='
+      become: no
