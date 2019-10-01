@@ -20,6 +20,30 @@
         - p7zip-full
       become: yes
 
+      # Install OpenJDK 8
+      # =================
+    - name: OpenJDK-8 - Add Java repository to sources
+      apt_repository:
+        repo: 'ppa:openjdk-r/ppa'
+      tags: openjdk-8
+    - name: OpenJDK-8 - Update APT package cache
+      apt:
+        update_cache: yes
+      tags: openjdk-8
+    - name: OpenJDK-8 - Install OpenJDK 8 
+      apt:
+        name: openjdk-8-jdk
+        force: yes
+      become: yes
+      tags: openjdk-8
+    - name: OpenJDK-8 - Add JAVA_HOME to env vars
+      lineinfile:
+        dest: "/etc/environment"
+        state: present
+        regexp: "^JAVA_HOME"
+        line: "JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64"
+      # End - Install OpenJDK 8 ==========
+
     - name: Auto change dir to project root
       lineinfile:
         dest: "/home/vagrant/.bashrc"

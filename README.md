@@ -6,7 +6,7 @@ environment.
 
 ### Todo
 
-- [ ] OpenJDK 8 and `JAVA_HOME` env vars.
+- [x] OpenJDK 8 and `JAVA_HOME` env vars.
 - [ ] Postgresql 10 and Postgresql-Client, with Connection string as env vars.
 - [ ] MongoDB 4, with Connection string as env vars.
 
