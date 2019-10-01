@@ -1,4 +1,4 @@
-- name: Vagrant development standard
+- name: Vagrant JVM apps development standard
   hosts: all
   user: vagrant
   become: yes
