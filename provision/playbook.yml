@@ -16,6 +16,8 @@
         - git
         - vim
         - lsof
+        - unzip
+        - p7zip-full
       become: yes
 
     - name: Auto change dir to project root
