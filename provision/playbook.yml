@@ -69,6 +69,18 @@
         line: "JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64"
       # END - Install OpenJDK 8 ===============
 
+      # Update & Upgrade distribution
+    - name: Upgrade Dist - Update cache
+      apt:
+        update_cache: yes
+        state: latest
+      tags: upgrade-dist
+    - name: Upgrade Dist - Upgrade Distribution
+      apt:
+        upgrade: dist
+      tags: upgrade-dist
+      # END - Upgrade Distribution ==========
+
     - name: Auto change dir to project root
       lineinfile:
         dest: "/home/vagrant/.bashrc"
