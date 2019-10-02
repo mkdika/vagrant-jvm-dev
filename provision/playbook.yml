@@ -18,6 +18,7 @@
         - lsof
         - unzip
         - p7zip-full
+        - postgresql-client
       become: yes
 
       # Install OpenJDK 8
