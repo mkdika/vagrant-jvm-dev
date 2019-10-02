@@ -21,6 +21,30 @@
         - postgresql-client
       become: yes
 
+      # Python3 Utils
+      # =============
+    - name: Python3 - Install pip3 & Virtual env
+      apt:
+        name: '{{ item }}'
+        force: yes
+        state: present
+      with_items:
+        - python3-pip
+      become: yes
+      tags: python3
+    - name: Python3 - Make python3 alias
+      blockinfile:
+        state: present
+        path: "/home/vagrant/.bashrc"
+        insertafter: EOF
+        block: |
+          alias python=python3
+          alias py=python3
+          alias pip=pip3
+      become: no
+      tags: python3
+      # END - Python Utils ===============
+
       # Install OpenJDK 8
       # =================
     - name: OpenJDK-8 - Add Java repository to sources
@@ -43,7 +67,7 @@
         state: present
         regexp: "^JAVA_HOME"
         line: "JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64"
-      # End - Install OpenJDK 8 ==========
+      # END - Install OpenJDK 8 ===============
 
     - name: Auto change dir to project root
       lineinfile:
