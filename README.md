@@ -9,12 +9,11 @@ environment.
 - Vagrant box base: [ubuntu/bionic64](https://app.vagrantup.com/ubuntu/boxes/bionic64) (Ubuntu 18.04LTS)
 - Python: Python3 & Pip3
 - JDK: OpenJDK 8 (jdk-8u222)
-- Postgresql:
-- MongoDB:
+- GraalVM: [19.2.0](https://github.com/oracle/graal/releases/tag/vm-19.2.0)
+- Postgresql: [10](https://www.postgresql.org/docs/10/index.html)
 
 > _This repository will maintain and update overtime._
 
-## TL;DR
 
 ### Usage
 
@@ -63,19 +62,18 @@ vagrant destroy
   - `VAGRANT_MEMORY`, for number of memory in MB. eg. `VAGRANT_MEMORY=4096`
   - `VAGRANT_STORAGE`, for number of storage. eg. `VAGRANT_STORAGE=20GB`
 
-  You may need to pre-install Vagrant's disksize plugin in order to ease storage customization.
+  You will need to pre-install Vagrant's disksize plugin in order to ease the storage size customization.
+  To install the plugin, run:
 
   ```bash
   vagrant plugin install vagrant-disksize
   ```
 
+  Destroy and re-up Vagrant if been exists.
+
 ### Todos
 
-- [x] OpenJDK 8 and `JAVA_HOME` env vars.
-- [x] Python3 & pip3 support.
-- [ ] Postgresql 10 and Postgresql-Client, with Connection string as env vars.
-- [ ] MongoDB 4, with Connection string as env vars.
-
+- [ ] Add GraalVM support?
 
 ## License
 
