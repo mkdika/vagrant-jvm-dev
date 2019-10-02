@@ -58,7 +58,7 @@ vagrant destroy
   - Access python3 and pip with alias `python, py, pip`
 
 - Postgresql
-  - Username: `postgres`, Password: <empty>, guest-port: `5432`, host-port: `5433`
+  - Username: `postgres`, Password: `<empty>`, guest-port: `5432`, host-port: `5433`
 
 Details about provision apps and util can be found in [provision](/provision/playbook.yml) file.
 
