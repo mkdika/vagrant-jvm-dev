@@ -9,7 +9,6 @@ environment.
 - Vagrant box base: [ubuntu/bionic64](https://app.vagrantup.com/ubuntu/boxes/bionic64) (Ubuntu 18.04LTS)
 - Python: Python3 & Pip3
 - JDK: OpenJDK 8 (jdk-8u222)
-- GraalVM: [19.2.0](https://github.com/oracle/graal/releases/tag/vm-19.2.0)
 - Postgresql: [10](https://www.postgresql.org/docs/10/index.html)
 
 > _This repository will maintain and update overtime._
@@ -47,6 +46,21 @@ vagrant status
 # To destroy (remove) Vagrant
 vagrant destroy
 ```
+
+### Provision
+
+- JDK
+  - Add `JAVA_HOME` to environment variable.
+  - Add `java` & `javac` to path.
+
+- Python3
+  - Install `pip3`
+  - Access python3 and pip with alias `python, py, pip`
+
+- Postgresql
+  - Username: `postgres`, Password: <empty>, guest-port: `5432`, host-port: `5433`
+
+Details about provision apps and util can be found in [provision](/provision/playbook.yml) file.
 
 ### Customization
 
