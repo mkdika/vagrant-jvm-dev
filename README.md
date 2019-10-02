@@ -1,5 +1,7 @@
 # Vagrant JVM Apps Development
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](/LICENSE)
+
 This is my standard Vagrant VM for ease the provision of server side __JVM based application__ development
 environment.
 
