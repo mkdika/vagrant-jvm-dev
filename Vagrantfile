@@ -21,6 +21,7 @@ end
 if ENV.fetch('VAGRANT_STORAGE', nil)
   guest_storage = ENV['VAGRANT_STORAGE']
 else
+  # Default to 10GB
   guest_storage = '10GB'
 end
 
@@ -37,8 +38,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.ssh.insert_key = false
   config.vm.synced_folder ".", "/vagrant"
 
-  # Storage configuration
-  config.disksize.size = guest_storage
+  if ENV.fetch('VAGRANT_STORAGE', nil)
+    # Custom storage configuration
+    config.disksize.size = guest_storage
+  end
 
   config.vm.network :forwarded_port, guest: 22, host: 2229, id: 'ssh'
   config.ssh.port = 2229
